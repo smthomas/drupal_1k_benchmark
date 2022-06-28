@@ -48,15 +48,6 @@ const Article = ({ data }) => {
                   >
                     Article
                   </Badge>
-                  <HStack
-                    divider={<StackDivider h="3" alignSelf="center" />}
-                    spacing="3"
-                    color={mode("gray.600", "gray.400")}
-                  >
-                    {article.relationships.field_tags.map((tag) => (
-                      <Box key={tag.id}>{tag.name}</Box>
-                    ))}
-                  </HStack>
                 </Stack>
                 <Heading size="xl" mt="6" mb="4">
                   {article.title}
@@ -116,10 +107,6 @@ export const query = graphql`
               gatsbyImageData(width: 600)
             }
           }
-        }
-        field_tags {
-          id
-          name
         }
       }
     }
