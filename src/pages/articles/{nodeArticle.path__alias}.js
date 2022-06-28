@@ -63,8 +63,7 @@ const Article = ({ data }) => {
                 <Img
                   as={GatsbyImage}
                   image={
-                    article.relationships.field_image.localFile.childImageSharp
-                      .gatsbyImageData
+                    article.relationships.field_image.gatsbyImage
                   }
                   w="full"
                   h="full"
@@ -102,11 +101,7 @@ export const query = graphql`
       }
       relationships {
         field_image {
-          localFile {
-            childImageSharp {
-              gatsbyImageData(width: 600)
-            }
-          }
+          gatsbyImage(width: 600)
         }
       }
     }

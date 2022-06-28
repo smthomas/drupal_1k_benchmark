@@ -28,8 +28,7 @@ const Home = ({ data }) => {
               title={article.title}
               path={article.path.alias}
               image={
-                article.relationships.field_image.localFile.childImageSharp
-                  .gatsbyImageData
+                article.relationships.field_image.gatsbyImage
               }
               alt={article.field_image.alt}
               summary={article.body.processed.substring(0, 300)}
@@ -59,11 +58,7 @@ export const pageQuery = graphql`
         }
         relationships {
           field_image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 600)
-              }
-            }
+            gatsbyImage(width: 600)
           }
         }
       }
